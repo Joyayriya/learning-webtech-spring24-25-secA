@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #calculator {
+            display: inline-block;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+
+        #display {
+            width: 220px;
+            height: 40px;
+            font-size: 20px;
+            margin-bottom: 15px;
+            text-align: right;
+            padding: 5px;
+        }
+
+        button {
+            width: 50px;
+            height: 50px;
+            font-size: 18px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        #clear {
+            width: 220px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Calculator</h2>
+
+    <div id="calculator">
+        <input type="text" id="display" readonly><br>
+
+        <button id="7">7</button>
+        <button id="8">8</button>
+        <button id="9">9</button>
+        <button id="/">/</button><br>
+
+        <button id="4">4</button>
+        <button id="5">5</button>
+        <button id="6">6</button>
+        <button id="*">*</button><br>
+
+        <button id="1">1</button>
+        <button id="2">2</button>
+        <button id="3">3</button>
+        <button id="-">-</button><br>
+
+        <button id="0">0</button>
+        <button id=".">.</button>
+        <button id="equals">=</button>
+        <button id="+">+</button><br><br>
+
+        <button id="clear">Clear</button>
+    </div>
+
+    <script>
+        const display = document.getElementById("display");
+
+        document.getElementById("0").addEventListener("click", () => { display.value += "0"; });
+        document.getElementById("1").addEventListener("click", () => { display.value += "1"; });
+        document.getElementById("2").addEventListener("click", () => { display.value += "2"; });
+        document.getElementById("3").addEventListener("click", () => { display.value += "3"; });
+        document.getElementById("4").addEventListener("click", () => { display.value += "4"; });
+        document.getElementById("5").addEventListener("click", () => { display.value += "5"; });
+        document.getElementById("6").addEventListener("click", () => { display.value += "6"; });
+        document.getElementById("7").addEventListener("click", () => { display.value += "7"; });
+        document.getElementById("8").addEventListener("click", () => { display.value += "8"; });
+        document.getElementById("9").addEventListener("click", () => { display.value += "9"; });
+        document.getElementById(".").addEventListener("click", () => { display.value += "."; });
+
+        document.getElementById("+").addEventListener("click", () => { display.value += "+"; });
+        document.getElementById("-").addEventListener("click", () => { display.value += "-"; });
+        document.getElementById("*").addEventListener("click", () => { display.value += "*"; });
+        document.getElementById("/").addEventListener("click", () => { display.value += "/"; });
+
+        document.getElementById("clear").addEventListener("click", () => {
+            display.value = "";
+        });
+
+        document.getElementById("equals").addEventListener("click", () => {
+            try {
+                const result = simpleCalculate(display.value);
+                display.value = result;
+            } catch {
+                display.value = "Error";
+            }
+        });
+
+        function simpleCalculate(expression) {
+            let num = "";
+            
+
+            for (let i = 0; i < expression.length; i++) {
+                const ch = expression[i];
+
+                switch (ch) {
+                    case "+":
+                    case "-":
+                    case "*":
+                    case "/":
+                        numbers.push(parseFloat(num));
+                        operators.push(ch);
+                        num = "";
+                        break;
+                    default:
+                        num += ch;
+                }
+            }
+            numbers.push(parseFloat(num));
+
+            for (let i = 0; i < operators.length; i++) {
+                switch (operators[i]) {
+                    case "*":
+                        const mul = numbers[i] * numbers[i + 1];
+                        numbers.splice(i, 2, mul);
+                        operators.splice(i, 1);
+                        i--;
+                        break;
+                    case "/":
+                        const div = numbers[i] / numbers[i + 1];
+                        numbers.splice(i, 2, div);
+                        operators.splice(i, 1);
+                        i--;
+                        break;
+                }
+            }
+            let total = numbers[0];
+            for (let i = 0; i < operators.length; i++) {
+                switch (operators[i]) {
+                    case "+":
+                        total += numbers[i + 1];
+                        break;
+                    case "-":
+                        total -= numbers[i + 1];
+                        break;
+                }
+            }
+
+            return total;
+        }
+    </script>
+
+</body>
+</html>

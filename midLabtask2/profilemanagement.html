@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile Management</title>
+</head>
+<body>
+
+<h2>Profile Management</h2>
+
+<form onsubmit="return validateForm()" method="post">
+
+    Name: <br>
+    <input type="text" id="name" name="name"><br>
+    <p id="nameError" style="color:red"></p><br>
+
+    Email: <br>
+    <input type="text" id="email" name="email"><br>
+    <p id="emailError" style="color:red"></p><br>
+
+    Password: <br>
+    <input type="password" id="password" name="password"><br>
+    <p id="passwordError" style="color:red"></p><br>
+
+    Profile Picture: <br>
+    <input type="file" id="profile_pic" name="profile_pic"><br>
+    <p id="picError" style="color:red"></p><br><br>
+
+    <input type="submit" value="Save Changes">
+
+</form>
+
+<script>
+function validateForm() {
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    var pic = document.getElementById("profile_pic").value;
+
+    var isValid = true;
+
+    document.getElementById("nameError").innerHTML = "";
+    document.getElementById("emailError").innerHTML = "";
+    document.getElementById("passwordError").innerHTML = "";
+    document.getElementById("picError").innerHTML = "";
+
+    if(name == ""){
+        document.getElementById("nameError").innerHTML = "Please enter name";
+        isValid = false;
+    }
+
+    if(email == "" || email.indexOf("@") == -1){
+        document.getElementById("emailError").innerHTML = "Please enter valid email";
+        isValid = false;
+    }
+
+    if(password == ""){
+        document.getElementById("passwordError").innerHTML = "Please enter password";
+        isValid = false;
+    }
+
+    if(pic == ""){
+        document.getElementById("picError").innerHTML = "Please select profile picture";
+        isValid = false;
+    }
+
+    return isValid;
+}
+</script>
+
+</body>
+</html>

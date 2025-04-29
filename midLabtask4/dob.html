@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Date Validation</title>
+  <script>
+    function validateDate() {
+      var errorMessage = ""; 
+      var day = document.getElementById("day").value;
+      var month = document.getElementById("month").value;
+      var year = document.getElementById("year").value;
+
+      if (day === "" || month === "" || year === "") {
+        errorMessage = "Please fill in all fields (day, month, year).";
+      }
+
+      if (isNaN(day) || isNaN(month) || isNaN(year)) {
+        if (errorMessage !== "") errorMessage += "\n";
+        errorMessage += "Day, month, and year must be valid numbers.";
+      }
+
+      if (errorMessage !== "") {
+        document.getElementById("errorDate").innerText = errorMessage; 
+        return false; 
+      }
+
+      document.getElementById("errorDate").innerText = "";
+      return true;
+    }
+  </script>
+</head>
+<body>
+  <h2>Enter Date</h2>
+  <form onsubmit="return validateDate()">
+    Day: <input type="text" id="day"><br>
+    Month: <input type="text" id="month"><br>
+    Year: <input type="text" id="year"><br><br>
+
+    <p id="errorDate" style="color: red;"></p> 
+
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>

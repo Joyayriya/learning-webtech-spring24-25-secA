@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Upload</title>
+  <script>
+    function validateUpload() {
+      var errorMessage = ""; 
+      var userId = document.getElementById("userid").value;
+      var picture = document.getElementById("picture").value;
+
+      if (userId === "") {
+        errorMessage = "User ID cannot be empty.";
+      }
+
+      if (picture === "") {
+        if (errorMessage !== "") errorMessage += "\n"; 
+        errorMessage += "Please upload a picture.";
+      }
+
+      if (errorMessage !== "") {
+        document.getElementById("errorUpload").innerText = errorMessage; 
+        return false; 
+      }
+
+      document.getElementById("errorUpload").innerText = ""; 
+      return true;
+    }
+  </script>
+</head>
+<body>
+  <h2>Upload Info</h2>
+  <form onsubmit="return validateUpload()">
+    User ID: <input type="text" id="userid"><br><br>
+    Upload Picture: <input type="file" id="picture"><br><br>
+
+    <p id="errorUpload" style="color: red;"></p>
+
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Parent Portal</title>
+  <meta charset="UTF-8">
+  <title>Student Management Dashboard</title>
   <style>
     body {
       margin: 0;
@@ -21,54 +21,57 @@
       font-size: 24px;
     }
 
-    main {
+    .content {
       flex: 1;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 20px;
     }
 
-    .card {
+    .login-box {
       background-color: white;
       padding: 40px;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       text-align: center;
-      min-width: 300px;
-      width: 80%;
-      max-width: 600px;
     }
 
-    .card h2 {
-      margin-bottom: 20px;
+    .login-box h2 {
+      margin-bottom: 30px;
       color: #2c3e50;
     }
 
-    .notification {
-      background-color: #ecf0f1;
-      padding: 12px;
+    .login-box a {
+      display: block;
+      color: white;
+      background-color: #34495e;
+      text-decoration: none;
       margin: 10px 0;
-      border-left: 5px solid #34495e;
-      text-align: left;
+      padding: 12px;
       border-radius: 5px;
+      font-size: 18px;
+      transition: background-color 0.3s ease;
+    }
+
+    .login-box a:hover {
+      background-color: #1abc9c;
     }
   </style>
 </head>
 <body>
 
-  <header>Parent Portal</header>
+  <header>
+    Welcome to AIUB Student Management System
+  </header>
 
-  <main>
-    <div class="card">
-      <h2>Real-Time Notifications</h2>
-      <div class="notification">Lamia scored A+ in Math</div>
-      <div class="notification">Samia was absent on Thursday</div>
-      <div class="notification">New grade posted in English</div>
-      <div class="notification">Attendance updated for Science class</div>
+  <div class="content">
+    <div class="login-box">
+      <h2>Select a role to continue</h2>
+      <a href="studentlogin.php">Student</a>
+      <a href="teacherlogin.php">Teacher</a>
+      <a href="parentlogin.php">Parent</a>
     </div>
-  </main>
+  </div>
 
 </body>
 </html>

@@ -2,7 +2,6 @@ document.getElementById("childSelect").addEventListener("change", function () {
     const selected = this.value;
     const childData = document.getElementById("childData");
   
-    // Simulated data
     if (selected === "S001") {
       childData.innerHTML = `
         <p><strong>Grade:</strong> A</p>
@@ -18,7 +17,6 @@ document.getElementById("childSelect").addEventListener("change", function () {
     }
   });
   
-  // Messaging form handler
   document.getElementById("messageForm").addEventListener("submit", function (e) {
     e.preventDefault();
     const teacher = document.getElementById("teacherName").value.trim();

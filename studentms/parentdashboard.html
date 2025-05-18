@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Parent Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+    }
+
+    .content {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .dashboard-box {
+      background-color: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      min-width: 300px;
+    }
+
+    .dashboard-box h2 {
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+
+    .dashboard-box ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .dashboard-box li {
+      margin: 10px 0;
+    }
+
+    .dashboard-box a {
+      text-decoration: none;
+      color: white;
+      background-color: #34495e;
+      padding: 10px 20px;
+      border-radius: 5px;
+      display: inline-block;
+    }
+
+    .dashboard-box a:hover {
+      background-color: #1abc9c;
+    }
+  </style>
+</head>
+<body>
+
+  <header>Welcome to AIUB Student Management System</header>
+
+  <div class="content">
+    <div class="dashboard-box">
+      <h2>Hello Mr./Mrs.</h2>
+      <ul>
+        <li><a href="parentportal.html">Parent Portal</a></li>
+        <li><a href="messaging.html">Communicate with Teachers</a></li>
+        <li><a href="logout.php">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+
+</body>
+</html>
